@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "wl/lesson-2"
+    imagename = "wlpr/jenkins"
     registryCredential = 'dockerhub_id'
     dockerImage = ''
   }
