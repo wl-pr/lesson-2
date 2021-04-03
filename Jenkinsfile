@@ -1,7 +1,7 @@
 pipeline {
   environment {
     imagename = "wl/jenkins"
-    registryCredential = 'github-ssh-key'
+    registryCredential = 'github_id'
     dockerImage = ''
   }
   agent any
