@@ -32,7 +32,7 @@ pipeline {
     }
     stage('Deploy') {
       steps{
-        sh "sudo docker run --rm -d -p80:9090 wl/jenkins:latest"
+        sh "docker run --rm -d -p80:9090 wl/jenkins:latest"
         sh "date"
 
       }
