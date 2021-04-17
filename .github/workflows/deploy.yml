@@ -8,8 +8,8 @@ jobs:
   run-playbooks:
     runs-on: ubuntu-latest  
     steps:
-    - uses: actions/checkout@v1
     - name: Run Ansible Playbook
+      uses: actions/checkout@v1
       with:
        playbook: play.yml
        key: ${{secrets.KEY}}
