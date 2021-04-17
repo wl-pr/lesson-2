@@ -17,3 +17,17 @@ jobs:
         key: ${{secrets.KEY}}
         inventory: |
           [52.59.251.179]
+          
+  deployAnsible:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: run exporters playbook
+      uses: actions/checkout@v1
+      with:
+        playbook: play.yml
+        key: ${{secrets.KEY}}
+        inventory: |
+          [52.59.251.179]
+        
+    
