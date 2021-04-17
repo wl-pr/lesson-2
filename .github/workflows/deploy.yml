@@ -12,4 +12,4 @@ jobs:
     
     - name: run exporters playbook
       run: |
-        ansible-playbook -i inventory play.yml
+        ansible-playbook -i host play.yml
