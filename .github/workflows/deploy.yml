@@ -17,4 +17,3 @@ jobs:
         key: ${{secrets.KEY}}
         inventory: |
           [52.59.251.179]
-  
