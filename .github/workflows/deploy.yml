@@ -1,33 +1,20 @@
-name: Ansible deploy
-
-on:
-  push:
-    branches:
-      - master
+name: Ansible Playbook
+on: [push]
 
 jobs:
-  build:
-
+  ansible_playbook_job:
     runs-on: ubuntu-latest
+    name: Execute Sample Playbook
     steps:
-    - name: run exporters playbook
-      uses: actions/checkout@v1
-      with:
-        playbook: play.yml
-        key: ${{secrets.KEY}}
-        inventory: |
-          [52.59.251.179]
-          
-  deployAnsible:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: run exporters playbook
-      uses: actions/checkout@v1
-      with:
-        playbook: play.yml
-        key: ${{secrets.KEY}}
-        inventory: |
-          [52.59.251.179]
-        
-    
+      - uses: actions/checkout@v1
+      - name: Execute Playbook Action Step
+        id: Execution
+        uses: saubermacherag/ansible-playbook-docker-action@master
+        env:
+          ANSIBLE_STDOUT_CALLBACK: debug
+          ANSIBLE_FORCE_COLOR: true
+        with:
+          playbookName: "play.yml"
+          inventoryFile: "hosts"
+          keyFile: ${{ secrets.KEY }}
+          keyFileVaultPass: ${{ secrets.KEY }}
