@@ -2,7 +2,7 @@
 
 - hosts: virtual
 
-  remote_user: wl
+  remote_user: root
   become: yes
   become_method: sudo
   become_user: root
