@@ -11,4 +11,8 @@ jobs:
     steps:
      - uses: actions/checkout@v2
      - name: Run Ansible Playbook
-       run: ansible-playbook play.yaml
+       with:
+        playbook: play.yml
+        key: ${{secrets.KEY}}
+        inventory: |
+          [52.59.251.179]
