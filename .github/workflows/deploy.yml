@@ -12,5 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: run exporters playbook
-      run: |
-        ansible-playbook -i host play.yml
+      with:
+        playbook: play.yml
+        key: ${{secrets.KEY}}
+        inventory: |
+          [52.59.251.179]
+  
