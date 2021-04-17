@@ -10,10 +10,4 @@ jobs:
 
     runs-on: ubuntu-latest
     
-steps:
-   - name: Run playbook
-     with:
-       playbook: play.yml
-       inventory: |
-         [52.59.251.179]
-       key: ${{secrets.KEY}}
+
