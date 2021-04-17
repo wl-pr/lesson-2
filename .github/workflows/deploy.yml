@@ -9,3 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    
+    - name: run exporters playbook
+      run: |
+        ansible-playbook -i inventory play.yml
