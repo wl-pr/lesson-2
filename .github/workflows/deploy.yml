@@ -10,13 +10,15 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-#    - name: My AWS Credentials
-#      uses: aws-actions/configure-aws-credentials@v1
-#      with:
-#        aws
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: run exporters playbook
  #     env:
  #       DO_API_KEY: ${{ secrets.KEY }}
       run: |
-        ansible-playbook -i host play.yml --private-key ${{ secrets.KEY }}
+ #       ansible-playbook -i host play.yml --private-key ${{ secrets.KEY }}
+         ansible-playbook -i host play.yml
