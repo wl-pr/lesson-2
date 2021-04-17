@@ -1,11 +1,11 @@
 ---
 
-- hosts: virtual
+#- hosts: virtual
 
-#  remote_user: root
-#  become: yes
-#  become_method: sudo
-#  become_user: root
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  become_user: root
 
   vars:
     ditrid_path: "/home/jenkins"
