@@ -17,8 +17,5 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: run exporters playbook
- #     env:
- #       DO_API_KEY: ${{ secrets.KEY }}
       run: |
- #       ansible-playbook -i host play.yml --private-key ${{ secrets.KEY }}
          ansible-playbook -i host play.yml
