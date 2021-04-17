@@ -11,5 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     
     - name: run exporters playbook
+      env:
+        DO_API_KEY: ${{ secrets.KEY }}
       run: |
         ansible-playbook -i host play.yml
