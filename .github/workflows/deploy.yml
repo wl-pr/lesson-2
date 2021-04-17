@@ -6,13 +6,12 @@ on:
 
 jobs:
   run-playbooks:
-    runs-on: self-hosted
-    
+    runs-on: ubuntu-latest  
     steps:
-     - uses: actions/checkout@v2
-     - name: Run Ansible Playbook
-       with:
-        playbook: play.yml
-        key: ${{secrets.KEY}}
-        inventory: |
-          [52.59.251.179]
+    - uses: actions/checkout@v2
+    - name: Run Ansible Playbook
+      with:
+       playbook: play.yml
+       key: ${{secrets.KEY}}
+       inventory: |
+         [52.59.251.179]
