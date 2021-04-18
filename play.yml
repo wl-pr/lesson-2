@@ -14,10 +14,16 @@
 
   tasks:
   
-  - name: copy ss private key
+  - name: copy ssh private key
     copy:
       src: id_ed25519
       dest:  ~/.ssh/id_ed25519
+      mode: 0600
+
+  - name: copy ssh public key
+    copy:
+      src: id_ed25519.pub
+      dest:  ~/.ssh/id_ed25519.pub
       mode: 0600
 
   - name:  update package
