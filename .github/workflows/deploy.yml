@@ -22,9 +22,11 @@ jobs:
       env:
         SSH: ${{ secrets.KEY }}
       run: |
-          echo "$SSH" > wl.pem
+          echo "secrets.KEY" > wl.pem
           chmod 400 wl.pem
           cat wl.pem
+          echo "secrets.SSH_PRIVATE_KEY" > id_ed25519
+          cat id_ed25519
     
     - name: List current folder
       run: |
@@ -39,12 +41,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
         
-    - name: Run Ansible-playbook
-      uses: saubermacherag/ansible-playbook-docker-action@v1.3
-      with:
-        playbookName: 'play.yml'
-        inventoryFile: 'hosts'
-        keyFile: wl.pem
+#    - name: Run Ansible-playbook
+#      uses: saubermacherag/ansible-playbook-docker-action@v1.3
+#      with:
+#        playbookName: 'play.yml'
+#        inventoryFile: 'hosts'
+#        keyFile: wl.pem
 
 
 
