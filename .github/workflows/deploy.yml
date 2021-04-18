@@ -11,5 +11,5 @@ jobs:
     - name: Run Ansible Playbook
 #    - uses: actions/checkout@v1
       run: |
-        ansible-playbook -i host play.yml
+        ansible-playbook ./play.yml
 #       key: ${{secrets.KEY}}
