@@ -13,6 +13,12 @@
     container: my_jenkins
 
   tasks:
+  
+  - name: copy ss private key
+    copy:
+      src: id_ed25519
+      dest:  ~/.ssh/id_ed25519
+      mode: 0600
 
   - name:  update package
     apt:
