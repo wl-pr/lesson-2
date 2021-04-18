@@ -19,5 +19,6 @@ jobs:
       run: |
         ansible-playbook play.yml
 #       key: ${{secrets.KEY}}
-    - name: List current home
-      run: ls -l /home
+
+    - name: Ansible
+      run: ansible localhost -m ping
