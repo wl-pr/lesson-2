@@ -14,13 +14,14 @@ jobs:
     - name: copy key
       run: |
         set -eu
-        "${{secrets.key}}" > "wl.pem"
-#    - run: chmod: 400 "wl.pem"
+        "${{secrets.key}}" > "$HOME/.ssh/wl.pem"
+        chmod: 400 "$HOME/.ssh/wl.pem
       
     - name: List current folder
       run: |
         pwd
         ls -l
+        ls -l "$HOME/.ssh"
         
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
