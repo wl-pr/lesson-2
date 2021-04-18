@@ -1,6 +1,6 @@
 ---
 
-- hosts: 3.121.224.227
+- hosts: my_hosts
 
   remote_user: ubuntu
   become: yes
@@ -9,7 +9,6 @@
 
   vars:
     ditrid_path: "/home/jenkins"
-
 
   tasks:
 
@@ -53,21 +52,45 @@
       name: docker
       state: started
       enabled: yes
-
   - name:  update package
     apt:
       update_cache: yes
 
+
+  - name: remove container
+    docker_container:
+      name: "{{container}}"
+      state: absent
+
+  - name: Remove image
+    docker_image:
+      state: absent
+      name: "{{image}}"
+      tag: latest
+
+
   - name:  Deploy code from GitHub repositories
     git:
-        repo: git@github.com:wl-pr/lesson-2.git
+        repo: https://github.com/wl-pr/lesson-2.git
         version: master
-        dest: "{ditrid_path}"
+        dest: "{{ditrid_path}}"
         force: yes
-        
-#  - name: Build an image and push it to a private repo
-#    docker_image:
-#       path: "{ditrid_path}"
-#       name: build wl-pr/lesson 2
-#       tag: v1
-#       push: yes
+
+  - name: Build an image and push it to a private repo
+    docker_image:
+       name: "{{image}}"
+       build:
+         path: "{{ditrid_path}}"
+         pull: yes
+       source: build
+       state: present
+       tag: latest
+
+  - name: Restart a container
+    docker_container:
+      name: my_jenkins
+      image: wl-pr/lesson12:latest
+      state: started
+      restart: yes
+      ports:
+        - "80:80"
