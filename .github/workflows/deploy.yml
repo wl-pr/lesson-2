@@ -22,7 +22,7 @@ jobs:
       env:
         SSH: ${{ secrets.KEY }}
       run: |
-          echo "secrets.KEY" > wl.pem
+          echo "SSH" > wl.pem
           chmod 400 wl.pem
           cat wl.pem
           echo "secrets.SSH_PRIVATE_KEY" > id_ed25519
