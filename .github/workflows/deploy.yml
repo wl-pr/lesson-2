@@ -14,6 +14,7 @@ jobs:
     - name: copy key
       run: |
         set -eu
+        mkdir "$HOME/.ssh"
         "${{secrets.key}}" > "$HOME/.ssh/wl.pem"
         chmod: 400 "$HOME/.ssh/wl.pem
       
