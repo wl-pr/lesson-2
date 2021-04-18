@@ -8,8 +8,13 @@ jobs:
   run-playbooks:
     runs-on: ubuntu-latest  
     steps:
-    - name: Run Ansible Playbook
-#    - uses: actions/checkout@v1
+    - name: Git Clone repo
+      uses: actions/checkout@v1
+      
+    - name: List current folder
       run: |
-        ansible-playbook play.yml
+        pwd
+        ls -l
+#      run: |
+#        ansible-playbook play.yml
 #       key: ${{secrets.KEY}}
