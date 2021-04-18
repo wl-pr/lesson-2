@@ -56,6 +56,20 @@
     apt:
       update_cache: yes
 
+  - name: installing docker SDK
+    apt:
+      name: python3-pip
+      state: present
+
+
+  - name: python docker and docker-compse module
+    pip:
+      name:
+        - docker
+
+  - name:  update package
+    apt:
+      update_cache: yes
 
   - name: remove container
     docker_container:
