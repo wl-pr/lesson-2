@@ -41,12 +41,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
         
-#    - name: Run Ansible-playbook
-#      uses: saubermacherag/ansible-playbook-docker-action@v1.3
-#      with:
-#        playbookName: 'play.yml'
-#        inventoryFile: 'hosts'
-#        keyFile: wl.pem
+    - name: Run Ansible-playbook
+      uses: saubermacherag/ansible-playbook-docker-action@v1.3
+      with:
+        playbookName: 'play.yml'
+        inventoryFile: 'hosts'
+        keyFile: wl.pem
 
 
 
