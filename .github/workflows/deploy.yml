@@ -25,8 +25,8 @@ jobs:
           echo "SSH" > wl.pem
           chmod 400 wl.pem
           cat wl.pem
-          echo "secrets.SSH_PRIVATE_KEY" > id_ed25519
-          cat id_ed25519
+#          echo "secrets.SSH_PRIVATE_KEY" > id_ed25519
+#          cat id_ed25519
     
     - name: List current folder
       run: |
