@@ -11,18 +11,26 @@ jobs:
     - name: Git Clone repo
       uses: actions/checkout@v1
       
-    - name: copy key
+ #   - name: copy key
+ #     run: |
+ #       set -eu
+ #       mkdir "$HOME/.ssh"
+ #       echo "${{secrets.key}}" > "$HOME/.ssh/wl.pem"
+ #       chmod 400 "$HOME/.ssh/wl.pem"
+   
+    - id: host
+      env:
+        SSH: ${{ secrets.KEY }}
       run: |
-        set -eu
-        mkdir "$HOME/.ssh"
-        echo "${{secrets.key}}" > "$HOME/.ssh/wl.pem"
-        chmod 400 "$HOME/.ssh/wl.pem"
-      
+          echo "$SSH" > wl.pem
+          chmod 400 wl.pem
+          cat wl.pem
+    
     - name: List current folder
       run: |
         pwd
         ls -l
-        ls -l "$HOME/.ssh"
+  #      ls -l "$HOME/.ssh"
         
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
