@@ -100,6 +100,7 @@
   - name:  Deploy code from GitHub repositories
     git:
         repo: ssh://git@github.com:wl-pr/lesson-2.git
+        key_file: ~/.ssh/id_ed25519
         version: master
         dest: "{{ditrid_path}}"
         force: yes
