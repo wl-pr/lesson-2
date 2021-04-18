@@ -1,6 +1,6 @@
 ---
 
-#- hosts: virtual
+- hosts: 3.121.224.227
 
   remote_user: ubuntu
   become: yes
