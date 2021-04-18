@@ -16,7 +16,7 @@ jobs:
         set -eu
         mkdir "$HOME/.ssh"
         echo "${{secrets.key}}" > "$HOME/.ssh/key"
-        chmod: 400 "$HOME/.ssh/key"
+#        chmod: 400 "$HOME/.ssh/key"
       
     - name: List current folder
       run: |
