@@ -24,12 +24,19 @@ jobs:
         aws-region: eu-central-1
         
     - name: Run Ansible-playbook
-      run: |
-        ansible-playbook play.yml
+      uses: saubermacherag/ansible-playbook-docker-action@v1.3
+      with:
+        playbookName: 'play.yml'
+        inventoryFile: 'hosts'
+
+
+
+#      run: |
+#        ansible-playbook play.yml
 #       key: ${{secrets.KEY}}
 
-    - name: version
-      run: |
-        ansible --version
-        ansible localhost -m ping
-        aws --version
+#    - name: version
+#      run: |
+#        ansible --version
+#        ansible localhost -m ping
+#        aws --version
