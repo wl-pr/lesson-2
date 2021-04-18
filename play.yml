@@ -11,13 +11,15 @@
     ditrid_path: "/home/jenkins"
     image: wl-pr/lesson12
     container: my_jenkins
+    github_key: id_rsa
+    key: "~/.ssh/{{github_key}}"
 
   tasks:
   
   - name: copy ssh private key
     copy:
-      src: id_rsa
-      dest:  ~/.ssh/id_rsa
+      src: "{{github_key}}"
+      dest:  "{{key}}"
       mode: 0600
 
   - name:  update package
@@ -94,7 +96,7 @@
   - name:  Deploy code from GitHub repositories
     git:
         repo: ssh://git@github.com/wl-pr/lesson-2.git
-        key_file: ~/.ssh/id_rsa
+        key_file: "{{key}}"
         version: master
         dest: "{{ditrid_path}}"
         force: yes
