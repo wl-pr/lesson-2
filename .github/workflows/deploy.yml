@@ -36,6 +36,7 @@ jobs:
       with:
         playbookName: 'play.yml'
         inventoryFile: 'hosts'
+        keyFile: "$HOME/.ssh/wl.pem"
 
 
 
