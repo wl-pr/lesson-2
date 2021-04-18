@@ -19,3 +19,5 @@ jobs:
       run: |
         ansible-playbook play.yml
 #       key: ${{secrets.KEY}}
+    - name: List current home
+      run: ls -l /home
