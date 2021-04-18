@@ -9,6 +9,8 @@
 
   vars:
     ditrid_path: "/home/jenkins"
+    image: wl-pr/lesson12
+    container: my_jenkins
 
   tasks:
 
