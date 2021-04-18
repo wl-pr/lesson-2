@@ -20,5 +20,8 @@ jobs:
         ansible-playbook play.yml
 #       key: ${{secrets.KEY}}
 
-    - name: Ansible
-      run: ansible localhost -m ping
+    - name: version
+      run: |
+        ansible --version
+        ansible localhost -m ping
+        aws --version
