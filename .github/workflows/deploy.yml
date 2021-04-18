@@ -19,16 +19,14 @@ jobs:
  #       chmod 400 "$HOME/.ssh/wl.pem"
    
     - id: host
-      env:
-        SSH: ${{ secrets.KEY }}
       run: |
           echo "${{ secrets.KEY }}" > wl.pem
           chmod 400 wl.pem
           cat wl.pem
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > id_ed25519
-          cat id_ed25519
-          echo "${{ secrets.SSH_PUPLIC_KEY }}" > id_ed25519.pub
-          cat id_ed25519.pub          
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > id_rsa
+          cat id_rsa
+ #         echo "${{ secrets.SSH_PUPLIC_KEY }}" > id_ed25519.pub
+ #         cat id_ed25519.pub          
     
     - name: List current folder
       run: |
