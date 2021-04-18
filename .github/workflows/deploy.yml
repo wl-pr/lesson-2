@@ -14,7 +14,7 @@ jobs:
     - name: copy key
     - run: set -eu
     - run: echo "${{secrets.key}}" > "wl.pem"
-    - run: chmod: 400 "wl.pem"
+#    - run: chmod: 400 "wl.pem"
       
     - name: List current folder
       run: |
